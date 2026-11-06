@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hexa FM Manual</title>
+<style>
+  @page { size: A4; margin: 18mm 17mm 20mm 17mm; }
+  body { font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #24211d; font-size: 10.5pt; line-height: 1.5; }
+  h1 { font-size: 22pt; margin: 0 0 6pt; color: #1b1917; letter-spacing: 0.5pt; }
+  h2 { font-size: 13pt; margin: 18pt 0 4pt; color: #2f7f72; }
+  h3 { font-size: 11pt; margin: 12pt 0 2pt; color: #24211d; }
+  p { margin: 4pt 0 6pt; }
+  a { color: #2f7f72; text-decoration: none; }
+  .chapter { page-break-before: always; }
+  .num { color: #8f2f3d; margin-right: 8pt; }
+  .cover { height: 245mm; display: flex; flex-direction: column; justify-content: center; }
+  .cover .badge { width: 120pt; height: 4pt; background: linear-gradient(90deg, #8f2f3d 0 25%, #b0505d 25% 50%, #2f7f72 50% 75%, #5aa597 75%); margin: 10pt 0 14pt; }
+  .cover .title { font-size: 40pt; font-weight: 700; letter-spacing: 6pt; }
+  .cover .sub { font-size: 13pt; color: #6b6458; }
+  .lcd { display: inline-block; background: #1a2214; color: #bcd47a; font-family: Menlo, monospace; padding: 4pt 10pt; border-radius: 3pt; margin-top: 18pt; }
+  .toc a { display: flex; justify-content: space-between; padding: 3pt 0; border-bottom: 0.5pt dotted #cfc8ba; color: #24211d; }
+  .toc a span.n { color: #8f2f3d; width: 22pt; display: inline-block; }
+  .toc .sub a { padding-left: 22pt; font-size: 9.5pt; color: #6b6458; }
+  .note { background: #f2efe8; border-left: 3pt solid #2f7f72; padding: 6pt 10pt; margin: 8pt 0; }
+  .warn { background: #f6ece9; border-left: 3pt solid #8f2f3d; padding: 6pt 10pt; margin: 8pt 0; }
+  code, .path { font-family: Menlo, Consolas, monospace; font-size: 9pt; background: #f2efe8; padding: 0 3pt; border-radius: 2pt; }
+  pre { font-family: Menlo, Consolas, monospace; font-size: 9pt; background: #1b1917; color: #ebe4d3; padding: 8pt 10pt; border-radius: 3pt; white-space: pre-wrap; }
+  img.shot { width: 100%; border: 0.5pt solid #cfc8ba; border-radius: 3pt; margin: 6pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0; font-size: 9.5pt; }
+  th, td { text-align: left; padding: 3pt 6pt; border-bottom: 0.5pt solid #e2ddd2; vertical-align: top; }
+  th { color: #6b6458; font-weight: 600; }
+  ol li, ul li { margin: 2pt 0; }
+  .back { font-size: 8.5pt; float: right; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="title">HEXA FM</div>
+  <div class="badge"></div>
+  <div class="sub">6-operator FM synthesizer · User manual · Version 0.1.0</div>
+  <div><span class="lcd">01&nbsp;&nbsp;WELCOME</span></div>
+  <p style="margin-top:30pt; color:#6b6458">Standalone app for Mac and Windows · VST3, CLAP and Audio Unit plugins<br>
+  Free and open source under the GNU GPL v3 · A redesign of AV Dexed, based on DEXED</p>
+</div>
+
+<div class="chapter" id="contents">
+<h1>Contents</h1>
+<p>Click any line to jump to that chapter. Every chapter has a "Contents" link at the top to come back here.</p>
+<div class="toc">
+  <a href="#welcome"><span><span class="n">1</span>Welcome</span></a>
+  <a href="#install-mac"><span><span class="n">2</span>Installing on a Mac</span></a>
+  <a href="#mac-security"><span><span class="n">3</span>Getting past Mac security warnings</span></a>
+  <a href="#install-win"><span><span class="n">4</span>Installing on Windows</span></a>
+  <a href="#manual-install"><span><span class="n">5</span>Installing the plugins by hand</span></a>
+  <a href="#tour"><span><span class="n">6</span>A quick tour of the screen</span></a>
+  <a href="#playing"><span><span class="n">7</span>Playing sounds</span></a>
+  <a href="#presets"><span><span class="n">8</span>Managing your sounds (the library)</span></a>
+  <div class="sub">
+    <a href="#presets-find">Finding sounds</a>
+    <a href="#presets-organise">Folders, favourites, ratings, categories and tags</a>
+    <a href="#presets-save">Saving, comparing and undoing changes</a>
+    <a href="#presets-import">Importing and exporting banks</a>
+  </div>
+  <a href="#play-page"><span><span class="n">9</span>The Play page</span></a>
+  <a href="#operators"><span><span class="n">10</span>How FM works: operators and algorithms</span></a>
+  <div class="sub">
+    <a href="#op-freq">Frequency</a>
+    <a href="#op-env">Envelopes</a>
+    <a href="#op-scaling">Keyboard scaling and sensitivity</a>
+    <a href="#lfo">LFO and pitch envelope</a>
+  </div>
+  <a href="#effects"><span><span class="n">11</span>Effects</span></a>
+  <a href="#settings"><span><span class="n">12</span>Settings</span></a>
+  <a href="#plugin"><span><span class="n">13</span>Using Hexa FM in your music software</span></a>
+  <a href="#trouble"><span><span class="n">14</span>Troubleshooting</span></a>
+  <a href="#licence"><span><span class="n">15</span>Licence and credits</span></a>
+</div>
+</div>
+
+<div class="chapter" id="welcome">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">1</span>Welcome</h1>
+<p>Hexa FM is a synthesizer built around <b>frequency modulation (FM)</b>, the sound of the classic 1983 six-operator keyboards: glassy electric pianos, punchy basses, bells, brass and evolving pads. It comes with more than 1,300 ready-made sounds and a library that makes them easy to find, sort and keep.</p>
+<p>You can use Hexa FM in two ways:</p>
+<ul>
+  <li><b>The standalone app</b>: open it like any program and play it with your computer keyboard, the on-screen keys or a MIDI keyboard.</li>
+  <li><b>A plugin</b> inside music software such as Logic Pro, Ableton Live, Cubase, Reaper, Bitwig, FL Studio or GarageBand. Hexa FM comes as VST3, CLAP and (on Mac) Audio Unit.</li>
+</ul>
+<div class="note">You don't need to understand FM to use Hexa FM. Pick a sound, play, and use the six big knobs on the Play page. When you're curious, chapter <a href="#operators">10</a> explains what's under the hood in plain words.</div>
+<h2>What's in the download</h2>
+<table>
+<tr><th>File</th><th>What it is</th></tr>
+<tr><td>HexaFM-0.1.0.pkg</td><td>Mac installer. Lets you choose the app and any of the AU, VST3 and CLAP plugins.</td></tr>
+<tr><td>HexaFM-0.1.0.dmg</td><td>Mac disk image with the installer, the app to drag into Applications, the plugin files, this manual and the licence.</td></tr>
+<tr><td>HexaFM-Setup-0.1.0.exe</td><td>Windows installer for the app and the VST3 and CLAP plugins.</td></tr>
+<tr><td>HexaFM-Mac-Plugins.zip / HexaFM-Windows-Plugins.zip</td><td>Just the plugin files, to drop into your plugin folders yourself (chapter <a href="#manual-install">5</a>).</td></tr>
+<tr><td>HexaFM-Source.zip</td><td>The source code, as the GPL v3 licence requires.</td></tr>
+</table>
+</div>
+
+<div class="chapter" id="install-mac">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">2</span>Installing on a Mac</h1>
+<p>Hexa FM runs on macOS 11 (Big Sur) or later, on both Apple-silicon and Intel Macs.</p>
+<h2>The easy way: the installer (.pkg)</h2>
+<ol>
+  <li>Double-click <b>HexaFM-0.1.0.pkg</b>, either on its own or from inside the .dmg. If macOS refuses to open it, see chapter <a href="#mac-security">3</a>; it takes one extra click.</li>
+  <li>Read the introduction and click <b>Continue</b>.</li>
+  <li>Read the <b>licence</b> (the terms and a short explanation of the GPL v3) and click <b>Agree</b>.</li>
+  <li>On <b>Installation Type</b>, click <b>Customize</b> to choose what to install: the <i>Hexa FM app</i>, the <i>Audio Unit</i>, <i>VST3</i> and <i>CLAP</i> plugins. Everything is ticked by default.</li>
+  <li>Click <b>Install</b> and enter your Mac password when asked. Installing into the system plugin folders needs it.</li>
+</ol>
+<p>The app goes into <span class="path">/Applications</span>. The plugins go into <span class="path">/Library/Audio/Plug-Ins/</span> in the <span class="path">Components</span> (AU), <span class="path">VST3</span> and <span class="path">CLAP</span> folders.</p>
+<h2>Or drag and drop from the .dmg</h2>
+<p>Open <b>HexaFM-0.1.0.dmg</b>. Drag <b>Hexa FM.app</b> onto the <b>Applications</b> shortcut next to it. The <b>Plugins</b> folder holds the plugin files to copy by hand (chapter <a href="#manual-install">5</a>).</p>
+<h2>After installing</h2>
+<p>Open Hexa FM from Applications or Launchpad. In music software, restart it or rescan plugins. Logic Pro and GarageBand check new Audio Units automatically the next time they start.</p>
+</div>
+
+<div class="chapter" id="mac-security">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">3</span>Getting past Mac security warnings</h1>
+<p>macOS checks every program you download. Programs from big companies are "notarised" through a paid Apple developer account. This free release isn't, so the first time you open it macOS shows a warning such as <i>"Apple could not verify 'HexaFM-0.1.0.pkg' is free of malware"</i> or <i>"cannot be opened because the developer cannot be verified"</i>. Nothing is wrong with the file. You just need to tell your Mac that you trust it, once.</p>
+<h2>Method 1: Open Anyway (macOS 13 Ventura and later)</h2>
+<ol>
+  <li>Double-click the file. When the warning appears, click <b>Done</b> or <b>OK</b>. Don't move it to the Bin.</li>
+  <li>Open the <b>Apple menu  › System Settings › Privacy &amp; Security</b>.</li>
+  <li>Scroll down to <b>Security</b>. You'll see a line like <i>"HexaFM-0.1.0.pkg was blocked to protect your Mac"</i>. Click <b>Open Anyway</b>.</li>
+  <li>Enter your password or use Touch ID, then click <b>Open Anyway</b> once more. The installer starts.</li>
+</ol>
+<div class="note">You only need to do this once per file. Do the same for <b>Hexa FM.app</b> if macOS warns you when you first open it.</div>
+<h2>Method 2: Right-click › Open (macOS 12 Monterey and earlier)</h2>
+<ol>
+  <li>In Finder, <b>Control-click</b> (or right-click) the file and choose <b>Open</b>.</li>
+  <li>In the message that appears, click <b>Open</b>.</li>
+</ol>
+<h2>Method 3: Terminal (for plugins copied by hand, or if the above doesn't work)</h2>
+<p>Files downloaded from the internet carry a "quarantine" mark. Removing it tells macOS you trust them. Open <b>Applications › Utilities › Terminal</b> and paste the line for what you installed, then press Return:</p>
+<pre>xattr -dr com.apple.quarantine "/Applications/Hexa FM.app"
+xattr -dr com.apple.quarantine "/Library/Audio/Plug-Ins/Components/Hexa FM.component"
+xattr -dr com.apple.quarantine "/Library/Audio/Plug-Ins/VST3/Hexa FM.vst3"
+xattr -dr com.apple.quarantine "/Library/Audio/Plug-Ins/CLAP/Hexa FM.clap"</pre>
+<p>If you installed the plugins into your <i>own</i> Library (chapter <a href="#manual-install">5</a>), use <span class="path">~/Library/Audio/Plug-Ins/…</span> in those lines instead. If Terminal says "Permission denied", put <code>sudo </code> in front of the line and enter your password.</p>
+<h2>The Audio Unit doesn't show up in Logic or GarageBand</h2>
+<ol>
+  <li>Quit Logic or GarageBand.</li>
+  <li>In Terminal run: <code>killall -9 AudioComponentRegistrar</code></li>
+  <li>Open Logic again. To check, go to <b>Logic Pro › Settings › Plug-in Manager</b>, find <b>Hexa FM</b> and click <b>Reset &amp; Rescan Selection</b>.</li>
+</ol>
+<div class="warn">Only remove quarantine from files you downloaded from a source you trust, such as the official Hexa FM release.</div>
+</div>
+
+<div class="chapter" id="install-win">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">4</span>Installing on Windows</h1>
+<p>Hexa FM runs on 64-bit Windows 10 and 11.</p>
+<ol>
+  <li>Double-click <b>HexaFM-Setup-0.1.0.exe</b>.</li>
+  <li>If Windows shows <i>"Windows protected your PC"</i> (Microsoft SmartScreen), click <b>More info</b>, then <b>Run anyway</b>. This happens because the free release isn't signed with a paid Microsoft certificate.</li>
+  <li>Click <b>Next</b>, read the terms and the GPL v3 explanation, tick <b>I accept</b> and click <b>Next</b>.</li>
+  <li>Choose what to install: the <b>Hexa FM app</b>, the <b>VST3</b> plugin and the <b>CLAP</b> plugin.</li>
+  <li>Choose <b>Just me</b> (no administrator rights needed) or <b>Everyone on this computer</b> (Windows asks for administrator permission).</li>
+  <li>Click <b>Install</b>. When it's finished you can open Hexa FM or this manual straight away.</li>
+</ol>
+<table>
+<tr><th></th><th>Just me</th><th>Everyone</th></tr>
+<tr><td>App</td><td class="path">%LOCALAPPDATA%\Programs\Hexa FM</td><td class="path">C:\Program Files\Hexa FM</td></tr>
+<tr><td>VST3</td><td class="path">%LOCALAPPDATA%\Programs\Common\VST3</td><td class="path">C:\Program Files\Common Files\VST3</td></tr>
+<tr><td>CLAP</td><td class="path">%LOCALAPPDATA%\Programs\Common\CLAP</td><td class="path">C:\Program Files\Common Files\CLAP</td></tr>
+</table>
+<p>Hexa FM appears in the Start menu. To remove it, use <b>Settings › Apps › Installed apps › Hexa FM › Uninstall</b>, or run <b>Uninstall Hexa FM.exe</b> in the app folder. Your sound library is kept.</p>
+<div class="note">Some music software only looks in <span class="path">C:\Program Files\Common Files\VST3</span>. If Hexa FM doesn't show up after a "Just me" install, either add the per-user folder to the program's plugin search paths, or reinstall with "Everyone".</div>
+</div>
+
+<div class="chapter" id="manual-install">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">5</span>Installing the plugins by hand</h1>
+<p>If you prefer not to use an installer, unzip <b>HexaFM-Mac-Plugins.zip</b> or <b>HexaFM-Windows-Plugins.zip</b> and copy each plugin into the matching folder. Then restart your music software, or tell it to rescan plugins.</p>
+<h2>Mac</h2>
+<table>
+<tr><th>Format</th><th>File</th><th>For all users</th><th>Just for you</th></tr>
+<tr><td>Audio Unit</td><td>Hexa FM.component</td><td class="path">/Library/Audio/Plug-Ins/Components</td><td class="path">~/Library/Audio/Plug-Ins/Components</td></tr>
+<tr><td>VST3</td><td>Hexa FM.vst3</td><td class="path">/Library/Audio/Plug-Ins/VST3</td><td class="path">~/Library/Audio/Plug-Ins/VST3</td></tr>
+<tr><td>CLAP</td><td>Hexa FM.clap</td><td class="path">/Library/Audio/Plug-Ins/CLAP</td><td class="path">~/Library/Audio/Plug-Ins/CLAP</td></tr>
+</table>
+<p>To open your own Library folder: in Finder choose <b>Go › Go to Folder…</b> and type <span class="path">~/Library/Audio/Plug-Ins</span>. Create the <span class="path">VST3</span> or <span class="path">CLAP</span> folder if it isn't there. After copying, run the Terminal lines from chapter <a href="#mac-security">3</a> to remove the quarantine mark.</p>
+<h2>Windows</h2>
+<table>
+<tr><th>Format</th><th>File</th><th>Folder</th></tr>
+<tr><td>VST3</td><td>Hexa FM.vst3 (a folder)</td><td class="path">C:\Program Files\Common Files\VST3</td></tr>
+<tr><td>CLAP</td><td>Hexa FM.clap</td><td class="path">C:\Program Files\Common Files\CLAP</td></tr>
+</table>
+<p>The standalone Windows app (<b>Hexa FM.exe</b>) can also live anywhere you like; just double-click it.</p>
+<div class="note">Why no "VST" (VST2)? Steinberg stopped licensing the old VST2 format in 2018, so new plugins can't be released in it. Every current host supports VST3, and many also support CLAP.</div>
+</div>
+
+<div class="chapter" id="tour">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">6</span>A quick tour of the screen</h1>
+<img class="shot" src="img/play.png">
+<table>
+<tr><th>Part</th><th>What it does</th></tr>
+<tr><td><b>Display</b> (top, green)</td><td>Shows the sound's slot, name, bank and category. <i>EDITED</i> appears when you have changed the sound and not saved it. Use ◀ ▶ (or the Up and Down arrow keys) to step through sounds, and ♡ to mark a favourite.</td></tr>
+<tr><td><b>Save · Save as… · Revert · Compare</b></td><td>Keep or undo your changes (chapter <a href="#presets-save">8</a>).</td></tr>
+<tr><td><b>Tabs</b></td><td><b>Play</b> (big controls and information about the sound), <b>Edit voice</b> (operators, chapter <a href="#operators">10</a>), <b>Effects</b> (chapter <a href="#effects">11</a>), <b>Settings</b> (chapter <a href="#settings">12</a>).</td></tr>
+<tr><td><b>Library sidebar</b> (left)</td><td>All sounds, Favourites, Recently played, My sounds, your folders, the banks and the Trash.</td></tr>
+<tr><td><b>Sound list</b></td><td>Search, filter by category or tag, sort, and click a sound to load it. Right-click a sound for more options.</td></tr>
+<tr><td><b>Keyboard</b> (bottom)</td><td>Click to play. Pitch and Mod act like a keyboard's wheels. − and + change the octave.</td></tr>
+<tr><td><b>OUT meter</b></td><td>Shows the output level; it turns red near clipping. <b>Panic</b> stops all notes.</td></tr>
+</table>
+</div>
+
+<div class="chapter" id="playing">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">7</span>Playing sounds</h1>
+<h2>With the mouse</h2>
+<p>Click the on-screen keys. Clicking lower on a key plays louder, like hitting a real key harder.</p>
+<h2>With the computer keyboard</h2>
+<p>When you aren't typing in a text box:</p>
+<table>
+<tr><th>Keys</th><th>Action</th></tr>
+<tr><td><code>A W S E D F T G Y H U J K O L P ;</code></td><td>Play notes (A is C; the top row gives the black keys)</td></tr>
+<tr><td><code>Z</code> / <code>X</code></td><td>Octave down / up</td></tr>
+<tr><td><code>↑</code> / <code>↓</code></td><td>Previous / next sound in the list (hold to keep stepping; it wraps round at the ends)</td></tr>
+<tr><td><code>Esc</code></td><td>Stop all notes (panic)</td></tr>
+<tr><td><code>⌘S</code> / <code>Ctrl+S</code></td><td>Save the sound</td></tr>
+<tr><td><code>⌘F</code> / <code>Ctrl+F</code></td><td>Jump to the search box</td></tr>
+</table>
+<h2>With a MIDI keyboard</h2>
+<p>In the standalone app, choose your keyboard under <b>Settings › MIDI › Input</b>. Hexa FM responds to notes, velocity, the pitch-bend wheel, the mod wheel (vibrato or tremolo, set in <b>Settings › Playing</b>) and the sustain pedal. You can also assign two buttons or pedals to step to the next and previous sound: click <b>Learn</b>, then press the button.</p>
+</div>
+
+<div class="chapter" id="presets">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">8</span>Managing your sounds (the library)</h1>
+<p>Every sound you have, factory or your own, lives in one library. Nothing is ever overwritten by accident: factory sounds stay as they are, and your edits become sounds of your own.</p>
+<h2 id="presets-find">Finding sounds</h2>
+<ul>
+  <li><b>Sidebar:</b> <i>All sounds</i>; <i>Favourites</i> (the ones you marked ♥); <i>Recently played</i> (the last 100); <i>My sounds</i> (the ones you saved); your <i>Folders</i>; <i>Included banks</i> and <i>Factory banks</i> (click "33 banks" to open the list); and <i>Imported banks</i>.</li>
+  <li><b>Search box:</b> type any words. Hexa FM searches names, banks, categories, tags and notes. "warm pad" finds sounds with both words.</li>
+  <li><b>Category chips:</b> click <i>Keys</i>, <i>Bass</i>, <i>Pad</i> and so on to show only that category. Hold ⌘ (or Shift) while clicking to combine several. <i>All</i> clears the filter.</li>
+  <li><b>Tags:</b> once you have added tags, they appear as chips you can click.</li>
+  <li><b>Sort:</b> by name, category, bank and slot, rating, recently played, most played or date added.</li>
+  <li><b>Min ★:</b> show only sounds rated at least that many stars.</li>
+</ul>
+<h2 id="presets-organise">Folders, favourites, ratings, categories and tags</h2>
+<p>A <b>folder</b> is like a playlist: a sound can be in several folders, and deleting a folder never deletes its sounds. Create one with the <b>+</b> next to FOLDERS. Then right-click a sound › <b>Folders</b> to tick the folders it belongs to, or use the Folders row in <i>About this sound</i> on the Play page.</p>
+<p>Right-click any sound in the list for: <b>Rating</b> (1–5 stars), <b>Category</b>, <b>Folders</b>, <b>Rename</b>, <b>Duplicate</b>, <b>Export</b> and <b>Move to Trash</b>. The ♡ at the start of each row marks a favourite with one click.</p>
+<p>The <b>About this sound</b> card on the Play page shows the same information for the current sound and adds <b>tags</b> (type a word and press Return), <b>author</b> and <b>notes</b>, a good place to write where you used a sound. The original name stored in the bank is shown as "Bank name".</p>
+<p>Hexa FM guesses each factory sound's category from its name, or from how it behaves (slow attack means a pad, a quick fade means plucked). Change it whenever you like.</p>
+<h2 id="presets-save">Saving, comparing and undoing changes</h2>
+<table>
+<tr><th>Button</th><th>What happens</th></tr>
+<tr><td><b>Save</b></td><td>Saves your changes. For your own sounds it updates the sound. For factory and imported sounds it makes a new copy in <i>My sounds</i>, so the original stays untouched.</td></tr>
+<tr><td><b>Save as…</b></td><td>Saves a new sound with a name, category and folder of your choice.</td></tr>
+<tr><td><b>Revert</b></td><td>Throws away your changes since the last save.</td></tr>
+<tr><td><b>Compare</b></td><td>Switches between the saved version and your edited version so you can hear the difference. Click again to go back to your edit.</td></tr>
+</table>
+<p>If you pick another sound while you have unsaved changes, Hexa FM asks whether to <b>Save</b>, <b>Discard</b> or <b>Cancel</b>.</p>
+<h2 id="presets-import">Importing and exporting banks</h2>
+<p><b>Import…</b> (in the sidebar), or dragging files onto the window, adds six-operator SysEx banks (<code>.syx</code>, 32 sounds each) and single Hexa FM sounds (<code>.hexafm</code>). Each bank gets its own entry under <i>Imported banks</i>, and you can also put the sounds straight into a folder.</p>
+<p><b>Export…</b> saves the sounds in the current list as <code>.syx</code> banks (32 per file), which other six-operator synths and editors can read. Right-click a folder or bank to export just that. Right-click a single sound to export it as <code>.syx</code> or as a <code>.hexafm</code> file, which keeps its effects, tags and notes too.</p>
+<p><b>Trash:</b> deleted sounds go to the Trash first; open it to <b>Restore</b> them or <b>Empty Trash</b>. <b>Settings › Library › Restore factory sounds</b> brings back any factory sound you deleted.</p>
+</div>
+
+<div class="chapter" id="play-page">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">9</span>The Play page</h1>
+<p>The Play page holds the controls you'll use most. Drag a knob up or down to turn it, hold <b>Shift</b> for fine steps, use the scroll wheel, or <b>double-click</b> to reset it. These settings are saved with each sound.</p>
+<table>
+<tr><th>Knob</th><th>What it does</th></tr>
+<tr><td><b>Volume</b></td><td>The loudness of this sound (−24 to +12 dB).</td></tr>
+<tr><td><b>Cutoff</b></td><td>Brightness. Turning it down makes the sound darker and softer (60 Hz to 19 kHz). Fully up, the filter is off.</td></tr>
+<tr><td><b>Resonance</b></td><td>Adds a whistling peak at the cutoff point. Try it with Cutoff around half way.</td></tr>
+<tr><td><b>Pan</b></td><td>Places the sound left or right.</td></tr>
+<tr><td><b>Reverb</b></td><td>Adds room or hall echo.</td></tr>
+<tr><td><b>Chorus</b></td><td>Makes the sound wider and shimmering, like several instruments playing together.</td></tr>
+<tr><td><b>Delay</b></td><td>Adds repeating echoes.</td></tr>
+</table>
+<p>The <b>Voice</b> card shows how this sound is built: its <b>algorithm</b> diagram and its six <b>operators</b>, labelled C (carrier, which you hear) or M (modulator, which shapes the tone). Click an <b>OP</b> button to switch that operator off for a moment and hear what it adds; click a box in the diagram to edit it.</p>
+</div>
+
+<div class="chapter" id="operators">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">10</span>How FM works: operators and algorithms</h1>
+<img class="shot" src="img/edit.png">
+<p>Each sound is made from six <b>operators</b>. An operator is a simple tone generator (a pure sine wave) with its own volume envelope. On its own it sounds like a flute or a test tone; the magic happens when operators are connected:</p>
+<ul>
+  <li>A <b>carrier</b> is an operator you hear directly.</li>
+  <li>A <b>modulator</b> isn't heard itself. It wobbles the pitch of the operator below it so fast that, instead of vibrato, you hear new harmonics: brightness, bite and metallic colour. The louder the modulator, the brighter the sound.</li>
+</ul>
+<p>The <b>algorithm</b> (1 to 32) decides how the six operators are connected. In the diagram, boxes at the bottom are carriers (joined by the line to the output), and boxes stacked above modulate the ones beneath them. A small loop on a box means <b>feedback</b>: the operator modulates itself, turning its sine wave into something closer to a sawtooth or noise. Set the amount with <b>Feedback</b> (0 to 7).</p>
+<div class="note">A good way to learn: load a simple sound such as an electric piano, go to <b>Edit voice</b>, select a modulator and slowly change its <b>Output level</b>. You'll hear the tone get brighter and duller.</div>
+<h2 id="op-freq">Frequency</h2>
+<p>Select an operator by clicking its card in the <b>Operators</b> row. The details appear below it.</p>
+<table>
+<tr><th>Control</th><th>Meaning</th></tr>
+<tr><td><b>Mode: Ratio</b></td><td>The operator follows the keyboard. <b>Coarse</b> sets a whole-number ratio (0 = ½, 1, 2, 3 …) and <b>Fine</b> adds up to +99%. Whole-number ratios give musical, harmonic tones; odd ratios such as ×3.5 or ×1.41 give bells and metallic sounds.</td></tr>
+<tr><td><b>Mode: Fixed</b></td><td>The operator always plays the same pitch (1 Hz to about 9.8 kHz), whatever key you press. Useful for drum and noise effects.</td></tr>
+<tr><td><b>Detune</b></td><td>Pulls the operator very slightly out of tune (−7 to +7) for a richer, chorused sound.</td></tr>
+<tr><td><b>Output level</b></td><td>For a carrier, its volume; for a modulator, how strongly it changes the tone (0–99).</td></tr>
+</table>
+<h2 id="op-env">Envelopes</h2>
+<p>Each operator has an <b>envelope</b> that shapes its level over time, with four stages. Each stage has a <b>Rate</b> (how fast it moves, 0–99, higher is faster) and a <b>Level</b> (where it goes, 0–99):</p>
+<ol>
+  <li><b>Stage 1</b>: from silence up to Level 1 when you press a key (the attack).</li>
+  <li><b>Stage 2</b>: on to Level 2 (the first part of the decay).</li>
+  <li><b>Stage 3</b>: on to Level 3, which is <b>held while the key is down</b> (the sustain).</li>
+  <li><b>Stage 4</b>: when you let go, to Level 4 (the release, usually 0).</li>
+</ol>
+<p>The graph shows the shape; the vertical line marks where you let go of the key. A modulator's envelope changes the <i>tone</i> over time. A modulator that fades quickly gives the bright "ping" at the start of an electric piano or a bass.</p>
+<h2 id="op-scaling">Keyboard scaling and sensitivity</h2>
+<table>
+<tr><th>Control</th><th>Meaning</th></tr>
+<tr><td><b>Break point</b>, <b>Left/Right depth</b>, <b>Left/Right curve</b></td><td>Make the operator louder or quieter as you play further below (left) or above (right) the break point note. This keeps high notes from getting harsh, or adds weight to the low end. Curves are linear (Lin) or exponential (Exp), going down (−) or up (+).</td></tr>
+<tr><td><b>Rate scaling</b></td><td>Higher notes have faster envelopes, like a real piano whose top notes die away sooner (0–7).</td></tr>
+<tr><td><b>Velocity sens.</b></td><td>How much playing harder makes the operator louder or brighter (0–7).</td></tr>
+<tr><td><b>Amp mod sens.</b></td><td>How much the LFO's tremolo affects this operator (0–3).</td></tr>
+</table>
+<p><b>Copy operator</b> and <b>Paste operator</b> copy all of an operator's settings to another one; <b>Paste envelope only</b> copies just the envelope.</p>
+<h2 id="lfo">LFO and pitch envelope</h2>
+<p>The <b>LFO</b> (low-frequency oscillator) is a slow wave that adds movement. Choose its <b>Waveform</b> (triangle, saw down, saw up, square, sine, sample &amp; hold) and <b>Speed</b>. <b>Delay</b> makes it fade in after you press a key. <b>Pitch depth</b> gives vibrato and <b>Amp depth</b> gives tremolo. <b>Pitch sens.</b> sets how strongly the vibrato affects the pitch, and <b>Key sync</b> restarts the wave on every note.</p>
+<p>The <b>Pitch envelope</b> bends the pitch of the whole sound over time, using four rates and levels like the operator envelopes. Level 50 means no change; lower or higher bends the pitch down or up, up to four octaves. A quick drop at the start gives a "zap" or drum-like attack.</p>
+<p><b>Transpose</b> shifts the whole sound up or down in semitones. <b>Voice name</b> is the short (10-character) name stored inside <code>.syx</code> banks.</p>
+</div>
+
+<div class="chapter" id="effects">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">11</span>Effects</h1>
+<img class="shot" src="img/effects.png">
+<p>The sound passes through the effects in this order: <b>filter</b> › <b>chorus</b> › <b>delay</b> › <b>reverb</b>. All effect settings are saved with each sound. Untick <b>On</b> to bypass an effect. The cards rearrange themselves to fit the window.</p>
+<h2>Filter &amp; output</h2>
+<p><b>Cutoff</b> and <b>Resonance</b> shape the brightness, as on the Play page. <b>Volume</b> and <b>Pan</b> set the level and position.</p>
+<h2>Chorus</h2>
+<table>
+<tr><td><b>Amount</b></td><td>How much chorus you hear.</td></tr>
+<tr><td><b>Rate</b></td><td>Speed of the shimmer, 0.05 to 5 Hz.</td></tr>
+<tr><td><b>Depth</b></td><td>How far the copies drift, 0 to 5 ms.</td></tr>
+<tr><td><b>Stereo</b></td><td>Width of the effect between left and right.</td></tr>
+<tr><td><b>Mode</b></td><td><b>I</b> is gentle, <b>II</b> runs faster (1.65×), and <b>I + II</b> combines both for a thick, swirling sound.</td></tr>
+</table>
+<h2>Delay</h2>
+<table>
+<tr><td><b>Amount</b></td><td>Echo level.</td></tr>
+<tr><td><b>Feedback</b></td><td>How many repeats (up to 90%).</td></tr>
+<tr><td><b>Damping</b></td><td>Makes each repeat darker, like a tape echo.</td></tr>
+<tr><td><b>Left / Right time</b></td><td>Echo time for each side, 20 to 1500 ms. Different times give a bouncing stereo echo.</td></tr>
+<tr><td><b>Sync to tempo</b></td><td>Sets the times as note lengths (1/16 to 1/2, with dotted and triplet values) at the tempo you choose (20 to 999 BPM).</td></tr>
+</table>
+<h2>Reverb</h2>
+<table>
+<tr><td><b>Amount</b></td><td>How much room sound is added on top of the dry sound.</td></tr>
+<tr><td><b>Size</b></td><td>From a small room to a long hall.</td></tr>
+<tr><td><b>Damping</b></td><td>Higher values make the reverb darker and softer.</td></tr>
+<tr><td><b>Pre-delay</b></td><td>A short gap (0 to 250 ms) before the reverb starts, which keeps the sound clear.</td></tr>
+</table>
+</div>
+
+<div class="chapter" id="settings">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">12</span>Settings</h1>
+<img class="shot" src="img/settings.png">
+<table>
+<tr><th>Section</th><th>What you'll find</th></tr>
+<tr><td><b>Audio</b></td><td>Choose the output device, see the sample rate, set the <b>Master volume</b> and <b>Master tune</b> (the same for every sound), and play a test tone. In a plugin, your music software handles the audio.</td></tr>
+<tr><td><b>MIDI</b></td><td>Choose the MIDI keyboard and channel, learn buttons for next and previous sound, and let program-change messages pick a sound from the current list.</td></tr>
+<tr><td><b>Appearance</b></td><td>Three colour schemes: <b>DX Classic</b> (inspired by the 1983 hardware), <b>Graphite</b> and <b>Daylight</b>. <b>Interface scale</b> makes everything larger or smaller. <b>Text size</b> (80–140%) changes just the text while keeping headings, labels and small print in proportion, and <b>Text grows a little as the window gets bigger</b> adds up to 15% when you enlarge the window.</td></tr>
+<tr><td><b>Playing</b></td><td>Pitch-bend range up and down, what the mod wheel does (vibrato and tremolo), glide time between notes, and Mono (one note at a time).</td></tr>
+<tr><td><b>Library</b></td><td>Open the folder where your library is stored, and restore factory sounds.</td></tr>
+</table>
+<p>Your library is stored in <span class="path">~/Library/Application Support/Hexa FM</span> on a Mac and <span class="path">%APPDATA%\Hexa FM</span> on Windows. The app and the plugins share the same library. Back up this folder to keep your sounds safe.</p>
+</div>
+
+<div class="chapter" id="plugin">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">13</span>Using Hexa FM in your music software</h1>
+<ol>
+  <li>Create a new <b>instrument</b> (software instrument, or MIDI) track.</li>
+  <li>Choose <b>Hexa FM</b> from your instruments. It's listed by the manufacturer "Hexa FM", under AU instruments, VST3 or CLAP, depending on your software.</li>
+  <li>Open the plugin window: it's the same interface as the app, with the full library.</li>
+</ol>
+<p>Your project remembers the sound on each track, including any unsaved edits. The library (favourites, folders and saved sounds) is shared with the standalone app.</p>
+<table>
+<tr><th>Software</th><th>Format to use</th></tr>
+<tr><td>Logic Pro, GarageBand, MainStage</td><td>Audio Unit (AU)</td></tr>
+<tr><td>Ableton Live, Cubase, Nuendo, Studio One, FL Studio</td><td>VST3 (Live 11+ and FL Studio also run AU on Mac)</td></tr>
+<tr><td>Bitwig Studio, Reaper, FL Studio 2024+</td><td>CLAP or VST3</td></tr>
+</table>
+</div>
+
+<div class="chapter" id="trouble">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">14</span>Troubleshooting</h1>
+<h3>macOS says the file "can't be opened" or "is damaged"</h3>
+<p>See chapter <a href="#mac-security">3</a>. "Damaged" usually means the quarantine mark; the Terminal lines there fix it.</p>
+<h3>No sound in the standalone app</h3>
+<p>Check <b>Settings › Audio › Output</b> and click <b>Play test tone</b>. Make sure the OUT meter moves when you play, and that Volume isn't turned right down. Press <b>Panic</b> if notes hang.</p>
+<h3>My MIDI keyboard doesn't play</h3>
+<p>Connect it before opening Hexa FM, or click <b>Refresh MIDI ports</b>, then choose it under <b>Settings › MIDI › Input</b>. Set Channel to "All channels".</p>
+<h3>The plugin doesn't appear in my music software</h3>
+<p>Check that the file is in the right folder (chapter <a href="#manual-install">5</a>), then rescan plugins or restart the software. On a Mac, remove the quarantine mark (chapter <a href="#mac-security">3</a>). For Logic, also see "The Audio Unit doesn't show up" in chapter 3.</p>
+<h3>The sound distorts</h3>
+<p>Lower the sound's <b>Volume</b> or the <b>Master volume</b>. FM sounds with many carriers can be loud when you play chords.</p>
+<h3>Windows says "Windows protected your PC"</h3>
+<p>Click <b>More info</b> › <b>Run anyway</b> (chapter <a href="#install-win">4</a>).</p>
+</div>
+
+<div class="chapter" id="licence">
+<a class="back" href="#contents">Contents</a>
+<h1><span class="num">15</span>Licence and credits</h1>
+<p>Hexa FM is free, open-source software under the <b>GNU General Public License, version 3 or later</b>. In plain words:</p>
+<ul>
+  <li>You may use it for anything, including commercial music, free of charge. The music you make is yours.</li>
+  <li>You may copy and share it, study how it works and change it. The source code comes with every release.</li>
+  <li>If you share Hexa FM or a changed version, you must share it under the same licence and make the source code available.</li>
+  <li>It comes with <b>no warranty</b>; you use it at your own risk.</li>
+</ul>
+<p>The full licence is at <a href="https://www.gnu.org/licenses/gpl-3.0.html">gnu.org/licenses/gpl-3.0.html</a> and is included as <code>COPYING</code>.</p>
+<h2>Credits</h2>
+<p>Hexa FM is a redesign of <b>AV Dexed</b> (by AV Vibes), which is based on <b>DEXED 1.1.0</b>. Thank you to Pascal Gauthier and everyone who created and maintains DEXED (<a href="https://asb2m10.github.io/dexed/">asb2m10.github.io/dexed</a>). The factory banks Dexed 01 and SynprezFM 01–32 come with DEXED and AV Dexed. The plugins are built with nih-plug and free-audio's clap-wrapper.</p>
+<p style="color:#6b6458; font-size:9pt">VST is a trademark of Steinberg Media Technologies GmbH. Audio Units, Logic Pro, GarageBand and macOS are trademarks of Apple Inc. DX7 is a trademark of Yamaha Corporation. Hexa FM is not affiliated with these companies.</p>
+</div>
+
+</body>
+</html>

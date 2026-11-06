@@ -1,0 +1,20 @@
+[package]
+name = "hexa-fm-plugin"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+description = "Hexa FM as a VST3 / CLAP (and AU via a wrapper) instrument plugin"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[[bin]]
+name = "hexa-fm-plugin-test"
+path = "src/bin/test_host.rs"
+
+[dependencies]
+hexa-fm = { path = ".." }
+nih_plug = { git = "https://github.com/robbert-vdh/nih-plug.git", features = ["standalone"] }
+nih_plug_egui = { git = "https://github.com/robbert-vdh/nih-plug.git" }
+egui = "0.31"
+serde = { version = "1", features = ["derive"] }

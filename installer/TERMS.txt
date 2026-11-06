@@ -1,0 +1,37 @@
+HEXA FM - TERMS AND LICENCE
+Version 0.1.0
+
+Please read these terms before installing. By installing or using Hexa FM you agree to them.
+
+1. WHAT YOU ARE INSTALLING
+Hexa FM is a six-operator FM synthesizer, available as a standalone app and as VST3, CLAP and (on Mac) Audio Unit plugins. It is a redesign of AV Dexed (by AV Vibes), which is based on DEXED 1.1.0 by Pascal Gauthier and contributors.
+
+2. LICENCE: GNU GENERAL PUBLIC LICENSE, VERSION 3 OR LATER (GPL-3.0-or-later)
+Hexa FM is free, open-source software released under the GNU General Public License, version 3 or (at your option) any later version.
+
+In plain words, the GPL v3 means:
+- You may use Hexa FM for any purpose, including commercial music production, free of charge.
+- You may copy and share it with anyone.
+- You may study how it works and change it. The source code is available with every release.
+- If you share Hexa FM, or a changed version of it, you must share it under the same GPL v3 licence, include this licence, and make the matching source code available to the people you give it to.
+- You may not add restrictions that take these freedoms away from others.
+- Music you make with Hexa FM is yours. The GPL covers the software, not your recordings or songs.
+
+The full licence text is at https://www.gnu.org/licenses/gpl-3.0.html. If anything here differs from the full licence, the full licence applies.
+
+3. NO WARRANTY
+Hexa FM is provided "as is", WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. The whole risk as to the quality and performance of the software is with you. In no event will the authors or distributors be liable for any damages arising from the use of, or inability to use, the software, including lost data or interrupted work. Keep backups of your projects and sounds.
+
+4. SOUND BANKS
+The factory banks Dexed 01 and SynprezFM 01-32 are shipped with DEXED and AV Dexed and are included here on the same terms. Additional banks included in this build (dx1, ROM1A-ROM4B) were supplied by the owner of this build; any rights in those sounds remain with their original authors and owners. Sounds you create or import are yours.
+
+5. TRADEMARKS
+VST is a trademark of Steinberg Media Technologies GmbH. Audio Units and macOS are trademarks of Apple Inc. CLAP is an open standard by the Free Audio group. DX7 is a trademark of Yamaha Corporation. Hexa FM is not affiliated with or endorsed by any of these companies.
+
+6. PRIVACY
+Hexa FM does not collect, send or share any personal data. It does not connect to the internet. Your sound library and settings are stored only on your computer.
+
+7. THIRD-PARTY COMPONENTS
+Hexa FM uses open-source components including egui/eframe (MIT/Apache-2.0), nih-plug (ISC), clap-wrapper (MIT), the CLAP SDK (MIT) and Apple's AudioUnitSDK (Apache-2.0). Their licences remain with them.
+
+Thank you to Pascal Gauthier and everyone who created and maintains DEXED: this project exists thanks to their work.

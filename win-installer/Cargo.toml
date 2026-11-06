@@ -1,0 +1,14 @@
+[package]
+name = "hexa-fm-setup"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+description = "Windows installer for Hexa FM (standalone app, VST3 and CLAP plugins)"
+
+[[bin]]
+name = "HexaFM-Setup"
+path = "src/main.rs"
+
+[dependencies]
+eframe = { version = "0.31", default-features = false, features = ["glow", "default_fonts"] }
+dirs = "6"
