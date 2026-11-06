@@ -1,12 +1,18 @@
+# Hexa FM
+
+A fork of the Open Source 6 Operator FM Synth Dexed with a highly usable GUI and preset management.
+
 ## Screenshots
 
-| Play | Edit Voice |
-| --- | --- |
-| ![Hexa FM Play Tab](Hexa%20FM%20Play%20Tab.png) | ![Hexa FM Edit Voice Tab](Hexa%20FM%20Edit%20Voice%20Tab.png) |
+<div align="center">
+  <img src="Hexa%20FM%20Play%20Tab.png" width="48%" alt="Hexa FM Play Tab" />
+  <img src="Hexa%20FM%20Edit%20Voice%20Tab.png" width="48%" alt="Hexa FM Edit Voice Tab" />
+</div>
 
-| Effects | Settings |
-| --- | --- |
-| ![Hexa FM Effects Tab](Hexa%20FM%20Effects%20Tab.png) | ![Hexa FM Settings Tab](Hexa%20FM%20Settings%20Tab.png) |
+<div align="center">
+  <img src="Hexa%20FM%20Effects%20Tab.png" width="48%" alt="Hexa FM Effects Tab" />
+  <img src="Hexa%20FM%20Settings%20Tab.png" width="48%" alt="Hexa FM Settings Tab" />
+</div>
 
 Currently testing in Ableton 12.
 Resizing of GUI works in Craft Anything using Claude Code but doesn't work within the DAW when dragging or using settings.
