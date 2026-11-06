@@ -1,3 +1,13 @@
+## Screenshots
+
+| Play | Edit Voice |
+| --- | --- |
+| ![Hexa FM Play Tab](Hexa%20FM%20Play%20Tab.png) | ![Hexa FM Edit Voice Tab](Hexa%20FM%20Edit%20Voice%20Tab.png) |
+
+| Effects | Settings |
+| --- | --- |
+| ![Hexa FM Effects Tab](Hexa%20FM%20Effects%20Tab.png) | ![Hexa FM Settings Tab](Hexa%20FM%20Settings%20Tab.png) |
+
 Currently testing in Ableton 12.
 Resizing of GUI works in Craft Anything using Claude Code but doesn't work within the DAW when dragging or using settings.
 Resizing font size within settings causes juddering.
