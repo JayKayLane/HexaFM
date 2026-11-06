@@ -9,4 +9,4 @@ Big thanks to the Dexed team https://github.com/asb2m10/dexed
 
 Big thanks to AV Dexed who inspired me to also strive to improve the UI of Dexed. https://github.com/AVVibesDSP/av-dexed/releases/tag/v0.2.0
 
-If I need to add any attribution please PM me as I am need to all of this.
+If I need to add any attribution please PM me as I am new to all of this.
